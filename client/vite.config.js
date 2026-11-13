@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   build: {
-    // server.js and ecosystem.config.js serve from client/build.
+    // server.js serves the production build from client/build.
     outDir: "build",
   },
   test: {
