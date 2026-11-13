@@ -30,7 +30,35 @@ const WorkExperience = () => {
             <Col sm={9} className="description">
               <Tab.Content>
                 <Tab.Pane eventKey="first">
-                  <div>
+                  <div className="role">
+                    <h2>Service Engineer Intern</h2>
+                    <p>May, 2022 - Jul, 2022</p>
+                    <p>Redmond, WA</p>
+                    <ul className="list">
+                      <li>
+                        Engineered a web app, which enabled the stakeholders to manage application versions on Microsoft Virtual Desktops,
+                        utilizing <strong>ASP.NET</strong>, <strong>C#</strong>, <strong>React</strong>,{" "}
+                        <strong>HTML</strong>, <strong>CSS</strong>, <strong>TypeScript</strong>,{" "}
+                        <strong>JavaScript</strong>, <strong>Azure Cosmos DB</strong>,{" "}
+                        <strong>Coherence UI</strong> and <strong>Fluent UI</strong>;
+                        improving user experience and productivity by <strong>83%</strong>
+                      </li>
+                      <li>
+                        Facilitated co-workers to split the existing code base, and documented the relevant process, enhancing the productivity of relevant dev teams
+                      </li>
+                      <li>
+                        Increased usability of the self-service portal web app for Microsoft
+                        Virtual Desktops by researching, discovering and documenting
+                        <strong>13</strong> accessibility issues; which helped the developers to
+                        apply appropriate code change quickly
+                      </li>
+                      <li>
+                        Received critical acclaim and <strong>100%</strong> satisfaction from the leadership team for
+                        the final presentation demonstrating progress made during the internship
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="role">
                     <h2>Service Engineer Intern</h2>
                     <p>May, 2022 - Jul, 2022</p>
                     <p>Redmond, WA</p>
@@ -60,7 +88,7 @@ const WorkExperience = () => {
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="second">
-                  <div>
+                  <div className="role">
                     <h2>Software Engineer Intern</h2>
                     <p>Sep, 2021 - Apr, 2022</p>
                     <p>Vancouver, BC</p>
@@ -87,7 +115,7 @@ const WorkExperience = () => {
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="third">
-                  <div>
+                  <div className="role">
                     <h2>Software Engineer Intern</h2>
                     <p>May, 2021 - Aug, 2021</p>
                     <p>Burnaby, BC</p>
@@ -111,7 +139,7 @@ const WorkExperience = () => {
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fourth">
-                  <div>
+                  <div className="role">
                     <h2>Software Engineer Intern</h2>
                     <p>Jan, 2019 - Aug, 2019</p>
                     <p>Vancouver, BC</p>
@@ -133,7 +161,7 @@ const WorkExperience = () => {
                   </div>
                 </Tab.Pane>
                 <Tab.Pane eventKey="fifth">
-                  <div>
+                  <div className="role">
                     <h2>Software Engineer Intern</h2>
                     <p>Jun, 2018 - Aug, 2018</p>
                     <p>Dhaka, Bangladesh</p>
@@ -154,12 +182,12 @@ const WorkExperience = () => {
                       </li>
                       <li>
                         Utilized <strong>REST APIs</strong>, <strong>DigitalOcean</strong> server and{" "}
-                        <strong>Cloudflare Content Delivery Network</strong> to scale the web app to serve{" "} 
-                        over <strong>10,000 requests per month</strong>, with each request taking{" "} 
+                        <strong>Cloudflare Content Delivery Network</strong> to scale the web app to serve{" "}
+                        over <strong>10,000 requests per month</strong>, with each request taking{" "}
                         under <strong>2 seconds</strong> for optimal user experience
                       </li>
                       <li>
-                        Developed a mobile app in <strong>Java</strong> and <strong>Android Studio</strong> for internal usage,{" "} 
+                        Developed a mobile app in <strong>Java</strong> and <strong>Android Studio</strong> for internal usage,{" "}
                         increasing employee productivity by <strong>50%</strong>
                       </li>
                       <li>

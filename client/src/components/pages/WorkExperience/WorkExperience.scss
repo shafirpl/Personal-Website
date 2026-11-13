@@ -27,9 +27,14 @@
     }
     .description{
         color: white;
+    }
+    .role{
         background-color: rgb(52,58,64);
-        // background-color: rgb(10,25,47);
-        padding-top: 1rem;
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem 0.25rem;
+        & + .role{
+            margin-top: 1.5rem;
+        }
     }
 }
 

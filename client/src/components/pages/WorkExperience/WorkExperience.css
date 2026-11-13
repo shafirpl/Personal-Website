@@ -24,8 +24,14 @@
 }
 .WorkExperience .description {
   color: white;
+}
+.WorkExperience .role {
   background-color: rgb(52, 58, 64);
-  padding-top: 1rem;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem 0.25rem;
+}
+.WorkExperience .role + .role {
+  margin-top: 1.5rem;
 }
 
 @media only screen and (max-width: 767px) {
