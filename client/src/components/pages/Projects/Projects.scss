@@ -1,0 +1,36 @@
+.Projects {
+  padding-top: 4.5rem;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+  text-align: center;
+  background-color: black;
+  color: white;
+  a {
+    color: white;
+  }
+  h1 {
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+  }
+  .list {
+    margin-top: 1rem;
+    text-align: left;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+  .description {
+    color: white;
+    background-color: rgb(52, 58, 64);
+    // background-color: rgb(10,25,47);
+    padding-top: 1rem;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .description {
+    margin-top: 1rem;
+  }
+}

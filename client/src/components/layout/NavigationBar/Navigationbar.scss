@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,600&display=swap");
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  cursor: pointer;
+}
+
+.brand-icon {
+  margin-right: 5px;
+}
+
+.button-margin {
+  margin-right: 1rem;
+}
+
+.bg-dark{
+   background-color: rgb(10,25,47) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:focus{
+  color: #3fa094;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: darkturquoise;
+}
+
+.navbar {
+  padding: 0.5rem 1rem !important;
+}

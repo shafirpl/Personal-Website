@@ -1,0 +1,26 @@
+.Contact {
+  min-height: 100vh;
+  padding-top: 4.5rem;
+  background-color: black;
+  padding-bottom: 2rem;
+  color: white;
+}
+.Contact .title {
+  text-align: center;
+}
+.Contact .alert {
+  background-color: green;
+  font-weight: bold;
+  padding: 0;
+  text-align: center;
+  margin-top: 2rem;
+  color: white;
+}
+.Contact .negative_alert {
+  background-color: red;
+}
+.Contact .btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}/*# sourceMappingURL=Contact.css.map */

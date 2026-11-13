@@ -1,0 +1,75 @@
+.Education {
+  padding-top: 4.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+  background-color: black;
+}
+.Education .card-header {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+}
+.Education h2 {
+  font-size: 30px;
+}
+@media only screen and (min-width: 400px) {
+  .Education {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+.Education .accordion {
+  margin-top: 1rem;
+}
+.Education h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 2rem;
+}
+.Education .secondTitle {
+  margin-top: 2rem;
+}
+.Education .title {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+}
+.Education .description {
+  font-weight: 500;
+  margin-top: 1rem;
+}
+.Education .name {
+  text-decoration: none;
+  color: black;
+  margin-right: 4px;
+  text-transform: capitalize;
+}
+.Education .faCaretDown {
+  font-size: 2rem;
+}
+.Education .accordion-button {
+  text-decoration: none;
+  color: black;
+  padding-left: 0;
+}
+.Education .accordion-button:hover {
+  color: black !important;
+  text-decoration: underline;
+}
+.Education .label-primary {
+  background-color: #337ab7;
+}
+.Education .label {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}/*# sourceMappingURL=Education.css.map */

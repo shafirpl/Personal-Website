@@ -1,0 +1,23 @@
+{
+  "name": "personal-website-cms-template",
+  "version": "2.0.0",
+  "type": "module",
+  "main": "server.js",
+  "repository": "https://shafirpl@bitbucket.org/shafirpl/personal-website-cms-template.git",
+  "author": "shafirpl <shafi.rpl@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client install && npm --prefix client run build"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.9"
+  }
+}

@@ -1,0 +1,471 @@
+import React from "react";
+import { Card, Accordion, Button } from "react-bootstrap";
+import "./Education.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+
+const Education = () => {
+  return (
+    <div>
+      <div className="Education">
+        <h1>Relevant Academic Courses</h1>
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">CPEN 321: Software Engineering</h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  The course taught us about SDLC (Software Development Life
+                  Cycle), software methodologies such as waterfall, agile etc,
+                  continuous integration using Git, UML diagrams, the REST api,
+                  software verification and validation, user requirements,
+                  design etc. The course required the students to work in a
+                  group of four to develop a mobile application with a backend
+                  that implements the REST Api.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">CPEN 422: Software Testing</h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  The Course involved teaching Different levels of testing
+                  including unit, integration, system, performance and
+                  regression levels. Requirements flowdown. Problem tracking.
+                  Coverage criteria. Static methods. Tools support. Specialized
+                  techniques. Assessment of correctness, reliability, safety.
+                  The course primarily used Java. It enhanced my skills on jUnit
+                  testing, coverage, mutation testing, regression testing,
+                  symbolic execution, GUI testing and invariant inference. The
+                  course primarily used Java.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">CPEN 331: Operating System</h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  The Course involved teaching introduction to operating
+                  systems, their design and their implementation. Process
+                  concurrency, synchronization, communication and scheduling.
+                  Device drivers, memory management, virtual memory, file
+                  systems, networking and security. The course required us to
+                  build up the OS161 operating system module by module, which
+                  enhanced our skills on computer architecture, operating system
+                  and firmware.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    CPSC 304: Introduction to Relational Databases{" "}
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  The Course involved teaching ER models, logical database
+                  design and normalization, formal relational query languages,
+                  SQL and other commercial languages,data warehouses, special
+                  topics. It enhanced my SQL skills
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    CPSC 221: Basic Algorithms and Data Structures{" "}
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  The Course involved teaching Design and analysis of basic
+                  algorithms and data structures; algorithm analysis methods,
+                  searching and sorting algorithms, basic data structures,
+                  graphs and concurrency.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    CPSC: 261 Basics of Computer Systems{" "}
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  Software architecture, operating systems, and I/O
+                  architectures. Relationships between application software,
+                  operating systems, and computing hardware; critical sections,
+                  deadlock avoidance, and performance; principles and operation
+                  of disks and networks. I learnt in depth about cache; x86
+                  assembly language; multithreading; different file systems such
+                  as FAT 32, Linux file system such as ext2,3,4; pointers;
+                  basics of operating sytems such as microkernel as well as
+                  virtual memory.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">STAT 251: Elementary Statistics</h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  The course taught us probability, discrete and continuous
+                  random variables, joint probability distributions, estimation,
+                  hypothesis testing, regression, analysis of variance, goodness
+                  of fit.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+        <h1 className="secondTitle">Relevant Udemy Courses</h1>
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    {" "}
+                    The Web Developer Bootcamp By Colt Steele
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  This course is a 43 hours course that covers both the front
+                  end and back end.On Front End part it covers HTML, CSS,
+                  JavaScript as well as various frameworks such as BootStrap,
+                  jQuery and such.On backend part it covers Node.js based
+                  frameworks such as express, passport and such.It also covers
+                  essential topics such as RESTful Routing, CRUD, MongoDB
+                  database, cloud 9 etc.Finally, it helps students to create a
+                  project named YelpCamp. I highly appreciate the instructor as
+                  I acuired most of my web development skills from this course.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    {" "}
+                    The Modern React Bootcamp By Colt Steele
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  This course is a 39 hours course that covers React, Hooks,
+                  Routing, States and such. I acuired most of my React skills
+                  from this course.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    {" "}
+                    MERN Stack Front To Back By Brad Traversy
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  This course is a 12 hours course that involves building an in
+                  depth full stack social network application using Node.js,
+                  Express, React, Redux and MongoDB along with ES6+. This course
+                  enhanced my MERN stack skills.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    {" "}
+                    Android Developer Course By Rob Percival & Nick Walter
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  This course taught me about Android development. Hoewever I
+                  decided not to finish it as I found better tutorials on
+                  youtube
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    {" "}
+                    Complete iOS App Development Bootcamp By Dr. Angela Yu
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  I am currently undertaking this course. This course teaches
+                  its students about iOS development using Swift 5.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+        <Accordion>
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle
+                as={Button}
+                variant="link"
+                eventKey="0"
+                className="accordion-button"
+              >
+                <div className="title">
+                  <h2 className="name">
+                    {" "}
+                    Machine Learning with Python By Frank Kane
+                  </h2>
+                  <FontAwesomeIcon icon={faCaretDown} className="faCaretDown" />
+                </div>
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <h3>
+                  <span class="label label-primary">Overview</span>
+                </h3>
+                <p className="description">
+                  {" "}
+                  I am currently undertaking this course. This course teaches
+                  its students about basics of Machine Learning.
+                </p>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
+      </div>
+    </div>
+  );
+};
+
+export default Education;
+
+

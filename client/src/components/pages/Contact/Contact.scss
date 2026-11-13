@@ -1,0 +1,30 @@
+.Contact {
+  min-height: 100vh;
+  padding-top: 4.5rem;
+  background-color: black;
+  //text-align: center;
+  padding-bottom: 2rem;
+  color: white;
+  .title {
+    text-align: center;
+  }
+
+  .alert {
+    background-color: green;
+    font-weight: bold;
+    padding: 0;
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+  }
+
+  .negative_alert {
+    background-color: red;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+}
