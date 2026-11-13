@@ -14,7 +14,7 @@
     "start": "node --env-file-if-exists=.env server.js",
     "dev": "node --watch --env-file-if-exists=.env server.js",
     "client": "npm --prefix client run dev",
-    "build": "npm --prefix client install && npm --prefix client run build"
+    "build": "npm --prefix client install --include=dev && npm --prefix client run build"
   },
   "dependencies": {
     "express": "^5.1.0",
