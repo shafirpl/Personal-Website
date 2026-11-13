@@ -111,7 +111,41 @@ Do **not** set `PORT`; App Platform provides it.
 
 ### 4. Deploy
 
-Click **Create Resources**. App Platform builds the app and gives you a `*.ondigitalocean.app` URL. To use your own domain, go to **Settings → Domains**; App Platform issues the TLS certificate.
+Click **Create Resources**. App Platform builds the app and gives you a `*.ondigitalocean.app` URL.
+
+### 5. Custom domain with Cloudflare DNS
+
+Follow these steps if your domain's nameservers point to Cloudflare. In the examples, replace `yourdomain.com` with your domain and `your-app.ondigitalocean.app` with your app's default URL.
+
+#### a. Add the domains in App Platform
+
+1. Go to the app's **Settings → Domains → Add Domain**.
+2. Enter `yourdomain.com` and choose **You manage your domain** (keep your existing nameservers).
+3. App Platform shows a **CNAME alias**, which is your app's `*.ondigitalocean.app` URL. Copy it.
+4. Repeat for `www.yourdomain.com`. Each hostname must be added separately, or App Platform won't serve it.
+
+App Platform also lists A records. You don't need them on Cloudflare, because Cloudflare supports a CNAME on the root domain (CNAME flattening).
+
+#### b. Add the DNS records in Cloudflare
+
+In Cloudflare, open the domain and go to **DNS → Records**. Delete any existing `A`, `AAAA` or `CNAME` records for `@` or `www`, then click **Add record** to create:
+
+| Type | Name | Target | Proxy status | TTL |
+|---|---|---|---|---|
+| CNAME | `@` | `your-app.ondigitalocean.app` | **DNS only** (grey cloud) | Auto |
+| CNAME | `www` | `your-app.ondigitalocean.app` | **DNS only** (grey cloud) | Auto |
+
+#### c. Wait for the domains to become active
+
+Back in App Platform under **Settings → Domains**, wait until both domains show **Active**. That means the DNS records were found and the HTTPS certificate was issued. It usually takes a few minutes. Then check that `https://yourdomain.com` and `https://www.yourdomain.com` both load.
+
+#### d. Optional: Cloudflare proxy
+
+DNS only (grey cloud) is the simplest and most reliable setup. To use Cloudflare's proxy (orange cloud) for caching and protection:
+
+- Turn it on only **after** both domains are Active.
+- Set **SSL/TLS → Overview** to **Full (strict)**. Do **not** use **Flexible**: App Platform redirects HTTP to HTTPS, so Flexible causes an endless redirect loop.
+- If App Platform reports a problem renewing the certificate, switch the records back to DNS only until the renewal finishes.
 
 ### Deploying updates
 
