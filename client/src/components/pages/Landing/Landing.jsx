@@ -14,8 +14,7 @@ const Landing = () => {
             <div className="land-animation">
               <h1 className="x-large">Hi I am Shafi</h1>
               <p className="lead">
-                A Final-Year Computer Engineering Student Interested in Web Dev,
-                App Dev and Machine Learning
+                Software Engineer @ Microsoft | Building Scalable and Resilient IAM Protection, Cloud Security, and Full-Stack Apps
               </p>
               <div className="buttons">
                 <Button variant="primary" className="button-margin land-button" as={Link} to="/work-experience">

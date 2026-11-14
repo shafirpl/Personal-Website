@@ -7,6 +7,12 @@
     .footer-paragraph{
         margin-bottom: 0;
     }
+    a{
+        color: darkturquoise;
+        &:hover{
+            color: #3fa094;
+        }
+    }
 }
 
 @media only screen and (max-width: 767px) {

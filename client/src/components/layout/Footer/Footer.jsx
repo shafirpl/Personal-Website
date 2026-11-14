@@ -4,7 +4,11 @@ const Footer = () => {
   return (
     <footer className="Footer">
       <p className="footer-paragraph">Designed and made by me</p>
-      <p className="footer-paragraph">Contact me for the repo as it is hosted on a private repo</p>
+      <p className="footer-paragraph">
+        <a href="https://github.com/shafirpl/Personal-Website" target="_blank" rel="noopener noreferrer">
+          View the source code on GitHub
+        </a>
+      </p>
     </footer>
   );
 };
