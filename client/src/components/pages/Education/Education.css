@@ -22,11 +22,11 @@
 }
 .Education .accordion {
   margin-top: 1rem;
-  --bs-accordion-bg: rgb(52, 58, 64);
+  --bs-accordion-bg: rgb(10, 25, 47);
   --bs-accordion-color: white;
   --bs-accordion-border-color: rgba(255, 255, 255, 0.15);
   --bs-accordion-btn-color: white;
-  --bs-accordion-active-bg: rgb(43, 48, 53);
+  --bs-accordion-active-bg: rgb(17, 34, 64);
   --bs-accordion-active-color: darkturquoise;
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(0, 206, 209, 0.25);
   --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
