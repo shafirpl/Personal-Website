@@ -73,103 +73,80 @@ npm start         # Express serves the site and API on PORT
 
 Then open http://localhost:5000.
 
-## Deploying to production (DigitalOcean droplet)
+## Deploying to production (DigitalOcean App Platform)
 
-This guide uses an Ubuntu droplet (tested against 26.04). The Node app runs on port 5000 under **PM2**, which keeps it running and restarts it after reboots. **Nginx** sits in front as a reverse proxy on ports 80 and 443 and handles HTTPS, so Node never needs root privileges.
+App Platform builds and runs the app straight from this Git repository. There are no servers to manage, and HTTPS is set up for you.
 
-### 1. Install system packages
+### 1. Create the app
 
-SSH into the droplet, then run:
+1. In the DigitalOcean control panel, go to **Create → App Platform**.
+2. Connect your Git provider and pick this repository and the branch to deploy, for example `main`.
+3. Leave **Source directory** as `/` (the repo root). The Express server builds and serves the React app, so this is a single web service.
 
-```bash
-sudo apt update && sudo apt upgrade -y
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-sudo apt install -y nodejs nginx git
-node -v                     # should be 22.12 or newer
-sudo npm install -g pm2
-```
+### 2. Deployment settings
 
-### 2. Get the code and build it
+| Setting | Value |
+|---|---|
+| Build strategy | Buildpack (auto-detected Node.js) |
+| Build command | *(leave empty)* |
+| Run command | `npm start` |
+| Public HTTP port | `8080` |
 
-```bash
-sudo mkdir -p /var/www && sudo chown $USER /var/www
-cd /var/www
-git clone <your-repo-url> personal-website
-cd personal-website
+How these settings fit together:
 
-npm install --omit=dev      # server dependencies
-npm run build               # installs client dependencies and builds client/build
+- The Node.js buildpack runs `npm install`, then runs the root `build` script automatically. That script installs the client dependencies and builds the React app into `client/build`.
+- App Platform sets `NODE_ENV=production` during the build. The `build` script passes `--include=dev` when it installs the client dependencies, so Vite (a devDependency) is still installed.
+- App Platform passes the HTTP port to the app as the `PORT` environment variable, and `server.js` listens on it.
 
-cp .env.example .env
-nano .env                   # set SENDGRID_API_KEY, keep PORT=5000
-```
+### 3. Environment variables
 
-### 3. Run the app with PM2
+The `.env` file is not committed, so set these in the app's component under **Settings → Environment Variables**:
 
-```bash
-pm2 start npm --name website -- start
-pm2 save
-pm2 startup                 # prints a command; run it so the app starts on boot
-curl -I http://localhost:5000   # should return HTTP 200
-```
+| Variable | Required | Notes |
+|---|---|---|
+| `SENDGRID_API_KEY` | For the contact form | Tick **Encrypt**. Without it, the site works but `/api/email` returns an error. |
+| `MAIL_TO` / `MAIL_FROM` | No | Override the contact-form recipient and sender addresses. |
 
-Useful PM2 commands: `pm2 status`, `pm2 logs website`, `pm2 restart website`.
+Do **not** set `PORT`; App Platform provides it.
 
-### 4. Configure Nginx as a reverse proxy
+### 4. Deploy
 
-Create `/etc/nginx/sites-available/website`:
+Click **Create Resources**. App Platform builds the app and gives you a `*.ondigitalocean.app` URL.
 
-```nginx
-server {
-    listen 80;
-    server_name yourdomain.com www.yourdomain.com;   # or "_" if you have no domain yet
+### 5. Custom domain with Cloudflare DNS
 
-    location / {
-        proxy_pass http://127.0.0.1:5000;
-        proxy_http_version 1.1;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-```
+Follow these steps if your domain's nameservers point to Cloudflare. In the examples, replace `yourdomain.com` with your domain and `your-app.ondigitalocean.app` with your app's default URL.
 
-Enable the site and reload Nginx:
+#### a. Add the domains in App Platform
 
-```bash
-sudo ln -s /etc/nginx/sites-available/website /etc/nginx/sites-enabled/
-sudo rm -f /etc/nginx/sites-enabled/default
-sudo nginx -t && sudo systemctl reload nginx
-```
+1. Go to the app's **Settings → Domains → Add Domain**.
+2. Enter `yourdomain.com` and choose **You manage your domain** (keep your existing nameservers).
+3. App Platform shows a **CNAME alias**, which is your app's `*.ondigitalocean.app` URL. Copy it.
+4. Repeat for `www.yourdomain.com`. Each hostname must be added separately, or App Platform won't serve it.
 
-### 5. Open the firewall
+App Platform also lists A records. You don't need them on Cloudflare, because Cloudflare supports a CNAME on the root domain (CNAME flattening).
 
-```bash
-sudo ufw allow OpenSSH
-sudo ufw allow 'Nginx Full'
-sudo ufw enable
-```
+#### b. Add the DNS records in Cloudflare
 
-The site is now available at `http://<droplet-ip>` (or your domain).
+In Cloudflare, open the domain and go to **DNS → Records**. Delete any existing `A`, `AAAA` or `CNAME` records for `@` or `www`, then click **Add record** to create:
 
-### 6. Enable HTTPS (requires a domain)
+| Type | Name | Target | Proxy status | TTL |
+|---|---|---|---|---|
+| CNAME | `@` | `your-app.ondigitalocean.app` | **DNS only** (grey cloud) | Auto |
+| CNAME | `www` | `your-app.ondigitalocean.app` | **DNS only** (grey cloud) | Auto |
 
-First point your domain's DNS **A record** at the droplet's IP address, then run:
+#### c. Wait for the domains to become active
 
-```bash
-sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
-```
+Back in App Platform under **Settings → Domains**, wait until both domains show **Active**. That means the DNS records were found and the HTTPS certificate was issued. It usually takes a few minutes. Then check that `https://yourdomain.com` and `https://www.yourdomain.com` both load.
 
-Certbot updates the Nginx config and sets up automatic certificate renewal.
+#### d. Optional: Cloudflare proxy
+
+DNS only (grey cloud) is the simplest and most reliable setup. To use Cloudflare's proxy (orange cloud) for caching and protection:
+
+- Turn it on only **after** both domains are Active.
+- Set **SSL/TLS → Overview** to **Full (strict)**. Do **not** use **Flexible**: App Platform redirects HTTP to HTTPS, so Flexible causes an endless redirect loop.
+- If App Platform reports a problem renewing the certificate, switch the records back to DNS only until the renewal finishes.
 
 ### Deploying updates
 
-```bash
-cd /var/www/personal-website
-git pull
-npm install --omit=dev
-npm run build
-pm2 restart website
-```
+Push to the deployed branch. If **Autodeploy** is on (the default), App Platform rebuilds and redeploys automatically. Otherwise, click **Actions → Force Rebuild and Deploy**.
